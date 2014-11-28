@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE> ZTREE DEMO - no checkbox</TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="css/demo.css" type="text/css">
+    <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <style type="text/css">
+        ul.ztree {
+            height: 600px;
+            background: #fff;
+        }
+    </style>
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ztree.core-3.5.js"></script>
+	<script type="text/javascript" src="js/jquery.ztree.excheck-3.5.js"></script>
+	<!--
+	<script type="text/javascript" src="../../../js/jquery.ztree.exedit-3.5.js"></script>
+	-->
+	<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			check: {
+				enable: true,
+				nocheckInherit: true
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			}
+		};
+
+		var zNodes =[
+			//{ id:1, pId:0, name:"随意勾选 1", open:true},
+			//{ id:11, pId:1, name:"随意勾选 1-1", open:true},
+			//{ id:111, pId:11, name:"无 checkbox 1-1-1", nocheck:true},
+			//{ id: 112, pId: 11, name: "随意勾选 1-1-2", nocheck: false },
+			//{ id:12, pId:1, name:"无 checkbox 1-2", nocheck:true, open:true},
+			//{ id:121, pId:12, name:"无 checkbox 1-2-1", open:true},
+			//{ id: 122, pId: 12, name: "无 checkbox 1-2-2" },
+
+			{ id:2, pId:0, name:"基本信息统计", checked:true, open:true},
+			{ id: 21, pId: 2, name: "地形地貌统计", open: true },
+            { id: 211, pId: 21, name: "海拔高程", checked:true},
+            { id:212,pId:21,name:"地貌类型分布"},
+			{ id:22, pId:2, name:"植被覆盖统计", open:false},
+			{ id: 23, pId: 2, name: "水域统计" },
+            { id: 24, pId: 2, name: "地理单元统计" },
+            { id: 25, pId: 2, name: "交通网络统计" },
+            { id: 26, pId: 2, name: "居民地与设施统计" },
+            { id: 261, pId: 26, name: "住宅用地" },
+            { id: 262, pId: 26, name: "公园" },
+
+            { id: 3, pId: 0, name: "综合信息统计", open: true },
+            { id: 31, pId: 3, name: "通达性分析", open: true },
+            { id: 311, pId: 31, name: "交通网络通达程度", open: true },
+            { id: 312, pId: 31, name: "交通网络通达能力", open: true },
+            { id: 32, pId: 3, name: "地表要素空间分析", open: true },
+            { id: 33, pId: 3, name: "地面覆盖程度", open: true },
+            { id: 34, pId: 3, name: "基础设施配置水平", open: true },
+
+            { id: 4, pId: 0, name: "专题分析", open: true },
+            { id: 41, pId: 4, name: "生态专题", open: true },
+            { id: 43, pId: 4, name: "经济专题", open: true },
+            { id: 431, pId: 43, name: "平均房价", open: true },
+            { id: 44, pId: 4, name: "公共服务设施专题", open: true },
+            { id: 45, pId: 4, name: "人口专题", open: true },
+            { id: 451, pId: 45, name: "人口总数统计", open: true },
+            { id: 4511, pId: 451, name: "人口总数", open: false },
+		    { id: 4512, pId: 451, name: "男性人口总数", open: true },
+            { id: 4513, pId: 451, name: "女性人口总数", open: true },
+            { id: 453, pId: 45, name: "城市人口总数", open: true },
+            { id: 4531, pId: 453, name: "城市人口总数", open: true },
+            { id: 4532, pId: 453, name: "农村人口总数", open: true },
+            { id: 452, pId: 45, name: "按年龄段统计", open: false },
+            { id: 4521, pId: 452, name: "0~14岁", open: true },
+            { id: 4522, pId: 452, name: "15~59岁", open: true },
+            { id: 4523, pId: 452, name: "60岁以上", open: true },
+
+            { id: 5, pId: 0, name: "其他", open: false },
+            { id: 51, pId: 5, name: "其他", open: true }
+
+		];
+
+		function nocheckNode(e) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			nocheck = e.data.nocheck,
+			nodes = zTree.getSelectedNodes();
+			if (nodes.length == 0) {
+				alert("请先选择一个节点");
+			}
+
+			for (var i=0, l=nodes.length; i<l; i++) {
+				nodes[i].nocheck = nocheck;
+				zTree.updateNode(nodes[i]);
+			}
+		}
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+			$("#nocheckTrue").bind("click", {nocheck: true}, nocheckNode);
+			$("#nocheckFalse").bind("click", {nocheck: false}, nocheckNode);
+		});
+		//-->
+	</SCRIPT>
+</HEAD>
+
+<BODY>
+<h1>Checkbox nocheck 演示</h1>
+<h6>[ 文件路径: excheck/checkbox_nocheck.html ]</h6>
+<div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+	<div class="right">
+		<ul class="info">
+			<li class="title"><h2>1、setting 配置信息说明</h2>
+				<ul class="list">
+				<li>这个 Demo 只简单演示 nocheck 的使用方法，详细配置信息请参考 ‘Checkbox 勾选操作’</li>
+				<li class="highlight_red">setting.check.nocheckInherit 可以设置子节点自动继承父节点的 nocheck 属性，详细请参见 API 文档中的相关内容</li>
+				<li><p>试试看：<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;[ <a id="nocheckTrue" href="#" title="set checkbox to be hidden." onclick="return false;">隐藏</a> ]
+					&nbsp;&nbsp;&nbsp;&nbsp;[ <a id="nocheckFalse" href="#" title="set checkbox to be show." onclick="return false;">显示</a> ]
+				</li>
+				</ul>
+			</li>
+			<li class="title"><h2>2、treeNode 节点数据说明</h2>
+				<ul class="list">
+				<li class="highlight_red">1)、如果某节点不显示 checkbox，请设置 treeNode.nocheck 属性，详细请参见 API 文档中的相关内容</li>
+				<li>2)、其他请参考 ‘Checkbox 勾选操作’</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+</BODY>
+</HTML>

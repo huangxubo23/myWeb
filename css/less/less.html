@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>LESS</title>
+    <link rel="stylesheet/less" type="text/css" href="demo.less" />
+    <script src="less.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <h3>Less 简介:Less 是一门 CSS 预处理语言，它扩充了 CSS 语言，增加了诸如变量、混合（mixin）、函数等功能，让 CSS 更易维护、方便制作主题、扩充。Less 可以运行在 Node、浏览器和 Rhino 平台上。网上有很多第三方工具帮助你编译 Less 源码。</h3>
+        <p class="blue">事实证明，LESS以及Sass（功能比这LESS要多太多）。LESS和Sass在语法上有些共性，比如下面这些：</p>
+        <ul class="light_blue">
+            <li>混入(Mixins)——class中的class；</li>
+            <li>参数混入——可以传递参数的class，就像函数一样；</li>
+            <li>嵌套规则——Class中嵌套class，从而减少重复的代码；</li>
+            <li>运算——CSS中用上数学；</li>
+            <li>颜色功能——可以编辑颜色；</li>
+            <li>名字空间(namespace)——分组样式，从而可以被调用；</li>
+            <li>作用域——局部修改样式；</li>
+            <li>JavaScript 赋值——在CSS中使用JavaScript表达式赋值。</li>
+        </ul>
+        <p class="dark_blue">LESS和Sass的主要不同就是他们的实现方式，LESSS是基于JavaScript，所以，是在客户端处理的。另一方面，Sass是基于Ruby的，然后是在服务器端处理的。</p>
+    </div>
+
+    <br/>
+
+    <div>
+        <h3 class="green header">less——一种动态样式语言<p><a href="http://www.bootcss.com/p/lesscss/" target="_blank">[查看网页]</a></p></h3>
+        <div class="light_green footer">LESS 将 CSS 赋予了动态语言的特性，如 变量， 继承， 运算， 函数. LESS 既可以在 客户端 上运行 (支持IE 6+, Webkit, Firefox)，也可以借助Node.js或者Rhino在服务端运行。</div>
+        <ul class="dark_green footer">
+            <li><strong>变量：</strong>变量允许我们单独定义一系列通用的样式，然后在需要的时候去调用。所以在做全局样式调整的时候我们可能只需要修改几行代码就可以了。
+                <pre>
+@color: #4D926F;
+#header {
+  color: @color;
+}
+h2 {
+  color: @color;
+}
+</pre>
+            </li>
+            <li><strong>混合:</strong>混合可以将一个定义好的class A轻松的引入到另一个class B中，从而简单实现class B继承class A中的所有属性。我们还可以带参数地调用，就像使用函数一样。
+                <pre>
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+.header {
+  .rounded-corners;
+}
+.footer {
+  .rounded-corners(10px);
+}
+</pre>
+            </li>
+            <li><strong>嵌套规则:</strong>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰
+                <pre>
+.header {
+  h1 {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  p { font-size: 12px;
+    a { text-decoration: none;
+      &:hover { border-width: 1px }
+    }
+  }
+}
+</pre>
+            </li>
+            <li><strong>函数 & 运算:</strong>运算提供了加，减，乘，除操作；我们可以做属性值和颜色的运算，这样就可以实现属性值之间的复杂关系。LESS中的函数一一映射了JavaScript代码，如果你愿意的话可以操作属性值。
+                <pre>
+@the-border: 1px;
+@base-color: #111;
+@red:        #842210;
+.header {
+  color: @base-color * 3;
+  border-left: @the-border;
+  border-right: @the-border * 2;
+}
+.footer { 
+  color: @base-color + #003300;
+  border-color: desaturate(@red, 10%);
+}
+</pre>
+            </li>
+            <li><strong>Color 函数:</strong>LESS 提供了一系列的颜色运算函数. 颜色会先被转化成 HSL 色彩空间, 然后在通道级别操作。
+                <pre>
+@blue: #369;
+.submit {
+    padding: 5px 10px;
+    width: 50px;
+    text-align:center;
+    border: 1px solid @blue;
+    background: -moz-linear-gradient(top, lighten(@blue, 10%), @blue 100%); /*Moz*/
+    background: -webkit-gradient(linear, center top, center bottom, from(lighten(@blue, 10%)), color-stop(100%, @blue)); /*Webkit*/
+    background: -o-linear-gradient(top, lighten(@blue, 10%) 0%, @blue 100%); /*Opera*/
+    background: -ms-linear-gradient(top, lighten(@blue, 10%) 0%, @blue 100%); /*IE 10+*/
+    background: linear-gradient(top, lighten(@blue, 10%) 0%, @blue 100%); /*W3C*/
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+}
+</pre>    
+                <div class="submit">submit</div>
+            </li>
+            <li>
+                <strong>Math 函数:</strong>LESS提供了一组方便的数学函数，你可以使用它们处理一些数字类型的值。
+                <pre>
+round(1.67); // returns `2`
+ceil(2.4);   // returns `3`
+floor(2.6);  // returns `2`
+percentage(0.5); // returns `50%`
+</pre>
+            </li>
+            <li>
+                <strong>命名空间:</strong>有时候，你可能为了更好组织CSS或者单纯是为了更好的封装，将一些变量或者混合模块打包起来。
+                <a href="http://www.baidu.com" target="_blank" >命名空间</a>
+                <pre>
+#bundle {
+  .button () {
+    display: block;
+    width: 100px;
+    border: 1px solid #dbdbdb;
+    background-color: #f1f1f1;
+    &:hover { color: white }
+  }
+  .tab { ... }
+  .citation { ... }
+}
+
+.footer a {
+  color: orange;
+  #bundle > .button;
+}
+</pre>
+            </li>
+            <li>
+                <strong>作用域:</strong>LESS 中的作用域跟其他编程语言非常类似，首先会从本地查找变量或者混合模块，如果没找到的话会去父级作用域中查找，直到找到为止.
+                <pre>
+@var: red;
+
+#page {
+  @var: white;
+  #header {
+    color: @var; // white
+  }
+}
+
+#footer {
+  color: @var; // red  
+}
+</pre>
+            </li>
+            <li>
+                <strong>字符串插值:</strong>变量可以用类似ruby和php的方式嵌入到字符串中，像@{name}这样的结构:
+                <pre>
+@base-url: "http://su.bdimg.com";
+.string{
+    width:270px;
+    height:129px;
+    background: url("@{base-url}/static/superplus/img/logo_white_ee663702.png");
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+    -moz-background-size:100% 100%;  
+    background-size:100% 100%; 
+}
+</pre>
+                <div class="string"></div>
+            </li>
+            <li>
+                <strong>JavaScript 表达式</strong>JavaScript 表达式也可以在.less 文件中使用. 可以通过反引号的方式使用，它也可以访问JavaScript环境。
+                <pre>
+@str:"hello";
+//@var:`"hello".toUpperCase() + '!'`;
+@var:`@{str}.toUpperCase() + '!'`;
+.javascript:before{
+    content:@var;
+}
+</pre>
+                <div class="javascript"></div>
+            </li>
+        </ul>
+        
+    </div>
+</body>
+</html>

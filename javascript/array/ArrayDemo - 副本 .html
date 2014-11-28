@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Array</title>
+    <script type="text/javascript" src="array.js"></script>
+</head>
+<body>
+    <div>
+        <h3>1、已知数组var stringArray = ["This", "is", "Baidu", "Campus"]，Alert出”This is Baidu Campus”。</h3>
+        <button onclick="alertStr();">join</button>
+        <div>alert(stringArray.join(" "))</div>
+    </div>
+
+    <br />
+
+    <div>
+        <h3>2、已知有字符串foo="get-element-by-id",写一个function将其转化成驼峰表示法"getElementById"。</h3>
+        <button onclick="changeUp();">change</button>
+        <div>
+            <pre>
+var foo="get-element-by-id";
+function changeUp(){
+    var str = combo(foo);
+    alert(str);
+}
+function combo(msg) {
+    var arr = msg.split("-");
+    for (var n = 1; n < arr.length; n++) {
+        arr[n] = arr[n].charAt(0).toUpperCase() + arr[n].substr(1, arr[n].length);
+    }
+    msg = arr.join("");
+    return msg;
+}
+</pre>
+        </div>
+    </div>
+
+    <br />
+
+    <div>
+        <h3>3、var numberArray = [3,6,2,4,1,5];①实现对该数组的倒排，输出[5,1,4,2,6,3],②实现对该数组的降序排列，输出[6,5,4,3,2,1]</h3>
+        <button onclick="reverse();">①数组倒排</button>
+        <div>
+            <pre>
+numberArray.reverse();
+</pre>
+        </div>
+        <hr />
+        <button onclick="sortArr(0);">数组升序</button>
+        <div>
+            <pre>
+//升序
+sortArray.sort(function(a, b) {
+    return a - b;
+});
+</pre>
+        </div>
+        <hr />
+        <button onclick="sortArr(1);">数组降序</button>
+        <div>
+            <pre>
+//降序
+sortArray.sort(function(a, b) {
+    return b - a;
+});
+</pre>
+        </div>
+        <hr />
+        <button onclick="sortArr(2);">数组排序</button>
+        <div>
+            <pre>
+var newArray = [23, 13, 9, 5, 55];
+//默认排序，[13,23,5,55,9]
+alert(newArray.sort());
+//使用排序函数（升序）,[5,9,13,23,55]
+sortArray = newArray.sort(function (a, b) {
+    return a - b;
+});
+</pre>
+            <p>如果调用sort()方法时没有使用参数，将按字母顺序对数组中的元素进行排序，说得更精确点，是按照字符编码的顺序进行排序。</p>
+        </div>
+    </div>
+
+    <div>
+        <h3>4、把两个数组合并，并删除第二个元素。</h3>
+        <button onclick="concatArr();">concat合并数组</button>
+        <pre>
+var aArray=["a","b","c","d"];
+var bArray=["e","f","g","h"];
+</pre>
+        <button onclick="spliceArr();">splices删除第二个元素</button>
+    </div>
+
+</body>
+</html>

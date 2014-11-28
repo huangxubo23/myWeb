@@ -1,0 +1,350 @@
+﻿
+/*网站布局*/
+.top-homeHeader {
+    height: 70px;
+    background: #44b549;
+}
+#top-nav {
+    display: block;
+    float: left;
+    /*width: 500px;*/
+}
+#top-nav>li>a {
+    height: 69px;
+    width: 85px;
+    line-height: 70px;
+    text-align: center;
+    padding: 10px;
+    overflow: hidden;
+    color: #FFE0DD;
+    text-shadow: none;
+    border-left: 1px dashed #dbdbdb;
+}
+#top-nav>li#infoSearch>a {
+    height: 69px;
+    width: 85px;
+    line-height: 70px;
+    text-align: center;
+    padding: 10px;
+    overflow: hidden;
+    color: #FFE0DD;
+    text-shadow: none;
+    border-left: 1px dashed #dbdbdb;
+}
+#top-nav>li>a:hover{
+    color: #fff;
+    border-left: 1px dashed #dbdbdb;
+    background: url(../images/navHover.png) no-repeat;
+}
+#top-nav>li#infoSearch>a:hover
+{
+    color: #fff;
+    border-left: 1px dashed #dbdbdb;
+    background: #44b549;
+} 
+#top-nav>li>a.clicked 
+{
+    color: #fff;
+    border-left: 1px dashed #dbdbdb;
+    background: url(../images/navClicked.png) no-repeat;
+}
+#top-nav>li>a>i {
+    display: block;
+    font-size: 18px;
+    line-height: 18px;
+    height: 0;
+}
+.section_icon_nav_box2 ul li {
+width: 80px;
+position: relative;
+float: left;
+height: 78px;
+border-right: 1px solid #eaeaea;
+}
+
+/*信息查询布局*/
+.top-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 11;
+    background: #44b549;
+}
+.top-logo {
+    display: inline-block;
+    float: left;
+    height: 70px;
+    width: auto;
+    float: left;
+    line-height: 70px;
+    font-size: 24px;
+    color: #fff;
+    margin-left: 10px;
+    font-family: "microsoft yahei";
+    /*background: url(logo.png) no-repeat center;*/
+    /*text-indent: -9999px;*/
+    /*overflow: hidden;*/
+}
+.top-logo i {
+    height: 28px;
+    width: 24px;
+}
+.main-sidebar {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    width: 350px;
+    border-right: 1px solid #dbdbdb;
+    background: #f6f7f7;
+    padding: 0 10px 0 10px;
+}
+.main-sidebar-small {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    width: 48px;
+    border-right: 1px solid #dbdbdb;
+    background: #f6f7f7;
+    -moz-transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+}
+.main-sidebar-default {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    width: 350px;
+    border-right: 1px solid #dbdbdb;
+    background: #f6f7f7;
+    -moz-transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+}
+.main-container, .main-container-default, .main-container  {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    left: 350px;
+    background: #f1f1f1;
+    overflow: hidden;
+}
+.main-container-big {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    left: 48px;
+    background: #f1f1f1;
+    -moz-transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+}
+.main-container-default {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    left: 350px;
+    background: #f1f1f1;
+    -moz-transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+}
+.map-toolbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 43px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #dbdbdb;
+}
+.map-windows {
+    position: absolute;
+    top: 43px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.mapToggle {
+    border: 2px solid #dbdbdb;
+    padding: 1px;
+    cursor: pointer;
+    background: #fff;
+    font-size: 12px;
+    text-align: center;
+}
+.mapToggle:hover {
+    border: 2px solid #44b549;
+    transition: all 0.2s linear;
+}
+.breadcrumb {
+    /*background-color: transparent;*/
+    display: inline-block;
+    line-height: 42px;
+    margin: 0 22px 0 12px;
+    padding: 0;
+    font-size: 13px;
+    color: #dbdbdb;
+    list-style: none;
+}
+.dropdown-menu .bottom-Line {
+    height: 2px;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #dbdbdb;
+    margin: 0;
+}
+.dropdown-menu>li>a {
+    height: 45px;
+    line-height: 40px;
+    margin: 0;
+    color: #333;
+}
+.dropdown-menu>li>a:hover {
+    background: #44b549;
+    color: #fff;
+}
+/*纳税人信息查询*/
+.sidebar-Name {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    left: 10px;
+    height: 43px;
+    line-height: 43px;
+    font-size: 18px;
+}
+.sidebar-Name i {
+    color: #2a6496;
+    width: 25px;
+    height: 20px;
+}
+.sidebar-Tab {
+    position: absolute;
+    top: 43px;
+    left: 10px;
+    right: 10px;
+    bottom: 30px;
+    background: #fff;
+}
+.sidebar-Content {
+    position: absolute;
+    top: 85px;
+    left: 10px;
+    right: 10px;
+    bottom: 35px;
+    background: #fff;
+    height: auto;
+    border: 1px solid #dbdbdb;
+    border-top: none;
+    padding: 15px 10px 10px 10px;
+}
+.sidebar-Content .siderbar-search {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    right: 10px;
+    border-bottom: 1px solid #dbdbdb;
+}
+.sidebar-Content .siderbar-list-big {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    left: 10px;
+    bottom: 51px;
+    overflow-y: auto;
+}
+.sidebar-Content .siderbar-list-small {
+    position: absolute;
+    top: 160px;
+    right: 10px;
+    left: 10px;
+    bottom: 51px;
+    overflow-y: auto;
+}
+.siderbar-foot {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin: 0 auto;
+}
+.mapLists {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 12px;
+    color: #555;
+}
+.mapLists>div.mapList {
+    padding: 10px 2px 0 0;
+    border-bottom: 1px dashed #f1f1f1;
+}
+.mapLists>div.mapList:hover {
+    background: #f5f5f5;
+    border-bottom: 1px dashed #44b549;
+    transition: all 0.4s ease-in;
+}
+.search-Text {
+    width: 155px;
+    height: 34px !important;
+}
+.listSearchMore {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px !important;
+    border-top: 1px solid #dbdbdb;
+    height: 80px;
+}
+.listSearchMore>dl>dd {
+    width: 100%;
+    height: 30px !important;
+}
+.listInputLeft {
+    width: 145px;
+    height: 30px !important;
+    float: left;  
+}
+.listInputRight {
+    width: 145px;
+    height: 30px !important;
+    float: right;  
+}
+.listSearchMore>dl>dd.secondDd{
+    margin-top: 5px; 
+}
+.listInputLeftBig{
+    width: 210px;
+    height: 30px !important;
+    float: left;  
+}
+.listSearchMore>dl>dd>button {
+    width: 80px;
+    height: 30px;
+    float: right;
+}
+div.display-div {
+    height: 23px;
+}
+div.display-div>P {
+    display: none;
+}
+table.tableTheadGrey {
+    border: 1px solid #dbdbdb;
+}
+table.tableTheadGrey thead {
+    background: #f1f1f1;
+}

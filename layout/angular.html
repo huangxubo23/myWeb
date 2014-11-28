@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html ng-app>
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <script src="js/angular-1.2.9/angular.js" type="text/javascript"></script>
+        
+        <script src="js/app/PhoneListCtrl.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <!--AngularJS数据绑定-->
+        <div>
+            <h3>AngularJS数据绑定</h3>
+            Your name: <input type="text" ng-model="yourname" placeholder="World">
+            Hello {{yourname || 'World'}}!
+        </div>
+        
+        <hr/>
+        <!--AngularJS模板-->
+        <!--ng-controller作用域-->
+        <div ng-controller="PhoneListCtrl" class="container-fluid">
+            <h3>AngularJS模板、数据绑定、迭代器、双向数据绑定，XHR和依赖注入，链接与图片模板，路由与多视图</h3>
+            <div class="row-fluid">
+                <div class="span10">
+                    <p ng-model="angularDes">{{angularDes.info}}</p>
+                    <div>
+                        查找:<input ng-model="query"/>
+                        排序：<select ng-model="orderProp">
+                               <option value="name">按字母排序</option>
+                               <option value="age">最新</option>
+                           </select>
+                    </div>
+                    <ul>
+                        <!--ng-repeat="phone in phones"语句是一个AngularJS迭代器-->
+                        <!--orderBy过滤器以一个数组作为输入，复制一份副本，然后把副本重排序再输出到迭代器。-->
+                        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+                            <a href="{{phone.href}}" class="thumb" target="_blank"><img ng-src="{{phone.imageUrl}}"/></a>
+                            <a href="{{phone.href}}" target="_blank">{{phone.name}}</a>
+                            <p>{{phone.snippet}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr/>
+            
+            <!--{{phones | json}}-->
+        </div>
+        
+    </body>
+</html>

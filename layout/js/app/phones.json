@@ -1,0 +1,63 @@
+﻿[
+    {
+		"name": "S视图和模板",
+		"snippet": "在AngularJS中，一个视图是模型通过HTML模板渲染之后的映射。这意味着，不论模型什么时候发生变化，AngularJS会实时更新结合点，随之更新视图。",
+		"age": 0,
+		"imageUrl" : "images/angular.png",
+		"href": "http://angularjs.cn/A005"
+	}, {
+		"name": "M模型和控制器",
+		"snippet": "在控制器里面初始化了数据模型。",
+		"age": 1,
+		"imageUrl" : "images/angular.png",
+		"href": "http://angularjs.cn/A005"
+	}, {
+		"name": "Z作用域",
+		"snippet": "AngularJS的作用域理论非常重要。一个作用域可以视作模板、模型和控制器协同工作的粘接器。AngularJS使用作用域，同时还有模板中的信息，数据模型和控制器。这些可以帮助模型和视图分离，但是他们两者确实是同步的！任何对于模型的更改都会即时反映在视图上；任何在视图上的更改都会被立刻体现在模型中。",
+		"age": 2,
+		"imageUrl" : "images/angular.png",
+		"href": "http://angularjs.cn/A005"
+	}, {
+		"name": "S数据绑定",
+		"snippet": " 数据绑定是AngularJS的一个核心特性。当页面加载的时候，AngularJS会根据输入框的属性值名字，将其与数据模型中相同名字的变量绑定在一起，以确保两者的同步性。",
+		"age": 3,
+		"imageUrl" : "images/angular.png",
+		"href": "http://angularjs.cn/A007"
+	},{
+		"name": "XHR和依赖注入",
+		"snippet": "使用AngularJS的一个内置服务$http可以获取一个更大的数据集。我们将使用AngularJS的依赖注入（dependency injection (DI)）功能来为PhoneListCtrl控制器提供这个AngularJS服务。",
+		"age": 4,
+		"imageUrl" : "images/angular.png",
+		"href": "http://angularjs.cn/A008"
+	},{
+	    "name": "XHR-$http",
+		"snippet": "AngularJS服务$http向你的Web服务器发起一个HTTP请求，以此从app/phones.json文件中获取数据。$http仅仅是AngularJS众多内建服务中之一，这些服务可以处理一些Web应用的通用操作。AngularJS能将这些服务注入到任何你需要它们的地方。",
+		"age": 5,
+		"imageUrl" : "images/angular.png",
+		"href": "http://angularjs.cn/A008"
+    },{
+	    "name": "Y依赖注入",
+		"snippet": "依赖注入服务是通过AngularJS的依赖注入DI子系统来管理的。依赖注入服务可以使你的Web应用良好构建（比如分离表现层、数据和控制三者的部件）并且松耦合（一个部件自己不需要解决部件之间的依赖问题，它们都被DI子系统所处理）。",
+		"age": 6,
+		"imageUrl" : "images/angular.png",
+		"href": "http://angularjs.cn/A008"
+	},{
+	    "name": "XHR和依赖注入——关于JS压缩",
+		"snippet": "由于AngularJS是通过控制器构造函数的参数名字来推断依赖服务名称的。所以如果你要压缩)PhoneListCtrl控制器的JS代码，它所有的参数也同时会被压缩，这时候依赖注入系统就不能正确的识别出服务了。解决方法：【1】为了克服压缩引起的问题，只要在控制器函数里面给$inject属性赋值一个依赖服务标识符的数组，就像下边被注释掉的那一行一样：PhoneListCtrl.$inject = ['$scope', '$http'];【2】另一种方法也可以用来指定依赖列表并且避免压缩问题——使用Javascript数组方式构造控制器：把要注入的服务放到一个字符串数组（代表依赖的名字）里，数组最后一个元素是控制器的方法函数：var PhoneListCtrl = ['$scope', '$http', function($scope, $http) { /* constructor body */ }];。",
+		"age": 7,
+		"imageUrl" : "images/angular.png",
+		"href": "http://angularjs.cn/A008"
+	},{
+	    "name": "J阶段总结",
+		"snippet": "现在你应该感觉得到使用AngularJS的服务是多么的容易（这都要归功于AngularJS服务的依赖注入机制）。",
+		"age": 8,
+		"imageUrl" : "images/angular.png",
+		"href": "http://angularjs.cn/A008"
+	},{
+	   "name": "D多视图，路由和布局模板",
+	   "snippet": "我们要把index.html模板转变成“布局模板”。这是我们应用所有视图的通用模板。其他的“局部布局模板”随后根据当前的“路由”被充填入，从而形成一个完整视图展示给用户。AngularJS中应用的路由通过$routeProvider来声明，它是$route服务的提供者。这项服务使得控制器、视图模板与当前浏览器的URL可以轻易集成。应用这个特性我们就可以实现深链接，它允许我们使用浏览器的历史(回退或者前进导航)和书签。",
+	   "age": 9,
+	   "imageUrl" : "images/angular.png",
+	   "href": "http://angularjs.cn/A00a"
+	}
+]

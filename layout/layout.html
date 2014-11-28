@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>电子地图布局模板</title>
+    <link href="js/bootstrap-3.2.0-dist/css/bootstrap-combined.min.css" rel="stylesheet"/>
+    <link href="js/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/layout.css" rel="stylesheet"/>
+</head>
+<body>
+<div>
+        <!--顶部Top栏-->
+        <div class="top-header">
+            <div class="top-logo"><i class="glyphicon glyphicon-leaf"></i>&nbsp;南沙区综合治税示范应用系统</div>
+        </div>
+        <!--左部面板-->
+        <div class="main-sidebar" id="mainSidebarId">
+            <div class="sidebar-Name" id="sidebarNameId"><i class="glyphicon glyphicon-user"></i><span>纳税人信息查询</span></div>
+            <!--Nav tabs-->
+            <div class="sidebar-Tab">
+                
+            </div>
+            <div class="siderbar-foot" style="text-align: center;"><p>© 2014 DCI.广州城市信息研究所有限公司.</p></div>
+        </div>
+       
+        <!--地图面板-->
+        <div class="main-container" id="mainContainerId">
+            <!--地图工具栏-->
+            <div class="map-toolbar">
+                <ul class="breadcrumb hidden-phone">
+                    <li><a href="index.html"><i class="glyphicon glyphicon-home"></i>&nbsp;首页</a></li>
+                    <li class="active">信息查询</li>
+                    <li class="active">纳税人信息查询</li>
+                    <li class="active" id="navInfoId">企业</li>
+                </ul>
+            </div>
+            <!--地图窗口-->
+            <div class="map-windows" id="mapDiv">
+                <div style="position: absolute; right: 20px; top: 10px; z-index: 5;">
+                    <!--<div id="basemapGalleryDiv"></div>-->
+                    <div>
+                        <div class="mapToggle" id="imageToggleId" onclick="nstax.main.map.mapToggle(0)">
+                            <div>
+                                <img alt="卫星影像" src="images/satellite.jpg" />
+                            </div>
+                            <div>卫星影像</div>
+                        </div>
+                        <div class="display-none mapToggle" id="mapToggleId" onclick="nstax.main.map.mapToggle(1)">
+                            <div>
+                                <img alt="电子地图" src="images/topo.jpg" />
+                            </div>
+                            <div>电子地图</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

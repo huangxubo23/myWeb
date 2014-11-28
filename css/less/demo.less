@@ -1,0 +1,155 @@
+﻿.common_font_family {
+    font-family: "Arial","Hiragino Sans GB","Microsoft YaHei", "Helvetica", "sans-serif";
+}
+
+body {
+    .common_font_family;
+}
+
+/*变量*/
+/*变量允许我们单独定义一系列通用的样式，然后在需要的时候去调用。所以在做全局样式调整的时候我们可能只需要修改几行代码就可以了。*/
+@blue: #00c;
+@light_blue: @blue + #333;
+@dark_blue: @blue - #333;
+
+@green: #4cf;
+@light_green: @green + #f00;
+@dark_green: @green - #f00;
+
+
+.blue {
+    color: @blue;
+}
+.light_blue {
+    color: @light_blue;
+}
+.dark_blue {
+    color: @dark_blue;
+}
+
+
+.green{
+    .blue;
+    background:@green;
+}
+.light_green{
+    .light_blue;
+    background:@light_green;
+}
+.dark_green{
+    .dark_blue;
+    background:@dark_green;
+}
+
+
+/*混合*/
+/*混合可以将一个定义好的class A轻松的引入到另一个class B中，从而简单实现class B继承class A中的所有属性。我们还可以带参数地调用，就像使用函数一样。*/
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+.header {
+  .rounded-corners;
+}
+.footer {
+  .rounded-corners(10px);
+}
+
+
+/*嵌套规则*/
+/*我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰。*/
+.header {
+  h1 {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  p { font-size: 12px;
+    a { text-decoration: none;
+        color: #fff;
+        padding:5px;
+      &:hover { border-width: 1px }
+    }
+    a:hover{
+        color:#dbdbdb;
+    }
+  }
+}
+
+
+/*函数 & 运算*/
+/*运算提供了加，减，乘，除操作；我们可以做属性值和颜色的运算，这样就可以实现属性值之间的复杂关系。LESS中的函数一一映射了JavaScript代码，如果你愿意的话可以操作属性值。*/
+@the-border: 1px;
+@base-color: #111;
+@red:        #842210;
+/*.header {
+  color: @base-color * 3;
+  border-left: @the-border;
+  border-right: @the-border * 2;
+}
+.footer { 
+  color: @base-color + #003300;
+  border-color: desaturate(@red, 10%);
+}*/
+
+
+/*color函数*/
+/*LESS 提供了一系列的颜色运算函数. 颜色会先被转化成 HSL 色彩空间, 然后在通道级别操作:*/
+@blue: #369;
+.submit {
+    padding: 5px 10px;
+    width: 50px;
+    text-align:center;
+    border: 1px solid @blue;
+    background: -moz-linear-gradient(top, lighten(@blue, 10%), @blue 100%); /*Moz*/
+    background: -webkit-gradient(linear, center top, center bottom, from(lighten(@blue, 10%)), color-stop(100%, @blue)); /*Webkit*/
+    background: -o-linear-gradient(top, lighten(@blue, 10%) 0%, @blue 100%); /*Opera*/
+    background: -ms-linear-gradient(top, lighten(@blue, 10%) 0%, @blue 100%); /*IE 10+*/
+    background: linear-gradient(top, lighten(@blue, 10%) 0%, @blue 100%); /*W3C*/
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+}
+
+
+/*命名空间*/
+/*有时候，你可能为了更好组织CSS或者单纯是为了更好的封装，将一些变量或者混合模块打包起来.*/
+/*#bundle{
+    .button(){
+        display:block;
+        width:100px;
+        border:1px solid #dbdbdb;
+        background-color:#f1f1f1;
+        &:hover{color:white;background-color:#dbdbdb;}
+    }
+    .tab{color:#f1f1f1}
+    .citation{color:#dbdbdb}
+}*/
+//@import "namespace";
+@import "namespace.less";  //引入.less 文件
+//@import "namespace.css"; //引入CSS文件，less不对其进行处理
+.footer a{
+    color:orange;
+    #bundle>.button;
+}
+
+
+/*字符串插值*/
+/*变量可以用类似ruby和php的方式嵌入到字符串中，像@{name}这样的结构*/
+@base-url: "http://su.bdimg.com";
+.string{
+    width:270px;
+    height:129px;
+    background: url("@{base-url}/static/superplus/img/logo_white_ee663702.png");
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+    -moz-background-size:100% 100%;  
+    background-size:100% 100%; 
+}
+
+
+/*JavaScript 表达式*/
+@str:"hello";
+//@var:`"hello".toUpperCase() + '!'`;
+@var:`@{str}.toUpperCase() + '!'`;
+.javascript:before{
+    content:@var;
+}

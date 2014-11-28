@@ -1,0 +1,37 @@
+﻿BODY
+        {
+            margin-top: 0px;
+            font-size: 9pt;
+            margin-left: 4px;
+            margin-right: 0px;
+            font-family: "微软雅黑";
+        }
+        A
+        {
+            font-weight: 400;
+            font-size: 13px;
+            color: black;
+            text-decoration: none;
+        }
+        A: hover
+        {
+            font-weight: 400;
+            font-size: 13px;
+            color: red;
+            text-decoration: underline;
+        }
+        A: active
+        {
+            cursor: hand;
+            color: #ff0033;
+        }
+        .STYLE1
+        {
+            color: #0000FF;
+            font-size: 40px;
+        }
+        .STYLE2
+        {
+            font-weight: bold;
+            font-size: 30px;
+        }

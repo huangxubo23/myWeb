@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>JS中的prototype</title>
+     <meta name="Keywords" content=""/>
+     <meta name="Description" content=""/>
+     <link rel="stylesheet" type="text/css" href="font-family.css"/>
+     <script type="text/javascript" src="prototype.js"></script>
+ </head>
+
+ <body class="common_font_family">
+     <h1 style="text-align: center">JS中的prototype</h1>
+     <div>
+         <h4>1.原型法设计模式</h4>
+         <p>原型法的主要思想是，现在有1个类A,我想要创建一个类B,这个类是以A为原型的,并且能进行扩展。我们称B的原型为A。</p>
+     </div>
+     
+     <div>
+         <h4>2.javascript的方法可以分为三类：</h4>
+         <p>a 类方法<br/>b 对象方法<br/>c 原型方法<br/></p>
+     </div>
+     
+     <div>
+         <h4>3.prototype是什么含义？</h4>
+         <p>javascript中的每个对象都有prototype属性，Javascript中对象的prototype属性的解释是：返回对象类型原型的引用。<br />
+             A.prototype = new B();<br/>
+             理解prototype不应把它和继承混淆。A的prototype为B的一个实例，可以理解A将B中的方法和属性全部克隆了一遍。A能使用B的方法和属性。这里强调的是克隆而不是继承。可以出现这种情况：A的prototype是B的实例，同时B的prototype也是A的实例。<br/>
+         </p>
+     </div>
+     
+     <div>
+         <h4>如果extendClass中本身包含有一个与baseClass的方法同名的方法会怎么样？</h4>
+         <p>实验证明：函数运行时会先去本体的函数中去找，如果找到则运行，找不到则去prototype中寻找函数。或者可以理解为prototype不会克隆同名函数。</p>
+     </div>
+ </body>
+</html>
